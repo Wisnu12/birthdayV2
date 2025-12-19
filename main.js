@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const sections = document.querySelectorAll('section');
-    const nextBtns = document.querySelectorAll('.next-btn');
+    const nextBtns = document.querySelectorAll('.next-btn:not(#music-yes-btn):not(#music-no-btn)');
     const yesBtn = document.getElementById('yes-btn');
     const noBtn = document.getElementById('no-btn');
     const rewatchBtn = document.getElementById('rewatch-btn');
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
     musicYesBtn.addEventListener("click", () => {
         musicEnabled = true;
         startBgMusic();
-        goToSection("section1"); // OLD first section
+        goToSection("section1");
         });
 
     musicNoBtn.addEventListener("click", () => {
