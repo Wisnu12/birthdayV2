@@ -4,8 +4,6 @@ html, body {
   overflow: hidden;
 }
 
-
-
 body {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
@@ -150,10 +148,30 @@ section.active {
   transform: translateY(-6px) scale(1.02);
 }
 
+#section3 {
+  align-items: flex-start;
+}
+
+#section3 .layout {
+  justify-content: flex-start;
+  padding-top: 40px;
+}
+
 #section3 h1 {
   font-size: 2.5rem;
   margin-bottom: 24px;
 }
+
+#section3 .image-grid-large img {
+  max-height: 55vh;
+  width: 100%;
+  object-fit: cover;
+}
+
+#section3 .next-btn {
+  margin-top: 32px;
+}
+
 
 #section6 {
   align-items: flex-start;
