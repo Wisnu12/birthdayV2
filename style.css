@@ -1,11 +1,12 @@
 html, body {
   height: 100%;
+  overscroll-behavior: none;
 }
+
 
 body {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
-    overflow: hidden;
 }
 
 #emoji-background {
@@ -27,10 +28,10 @@ body {
 
 @keyframes floatEmoji {
   from {
-    transform: translateY(110vh) translateX(0) rotate(0deg);
+    transform: translateY(110dvh) translateX(0) rotate(0deg);
   }
   to {
-    transform: translateY(-20vh) translateX(40px) rotate(360deg);
+    transform: translateY(-20dvh) translateX(40px) rotate(360deg);
   }
 }
 
