@@ -149,16 +149,19 @@ section.active {
 }
 
 #section3 {
-  align-items: flex-start;
+  position: relative;      /* ← break out of absolute */
+  min-height: 100dvh;
   overflow-y: auto;
+  align-items: flex-start;
 }
 
 
 #section3 .layout {
   justify-content: flex-start;
-  padding-top: 40px;
-  padding-bottom: 80px; /* space for button */
+  padding-top: 32px;
+  padding-bottom: 100px;
 }
+
 
 
 #section3 h1 {
@@ -173,10 +176,11 @@ section.active {
 
 #section3 .image-grid-large img {
   width: 100%;
-  max-height: 45vh;
-  object-fit: cover;
-  border-radius: 16px;
+  height: auto;
+  max-height: 50dvh;
+  object-fit: contain;
 }
+
 
 
 #section3 .next-btn {
