@@ -47,13 +47,13 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
         reaction: "WDYM U DONT LOVE ME, AGAIN 😭",
-        nextImg: "assets/images/no2.jpg",
+        nextImg: "assets/images/no2.gif",
         sound: "assets/audio/bass2.mp3",
         forceYes: false
     },
     {
         reaction: "yeah no, you HAVE to love me.",
-        nextImg: "assets/images/no3.jpg",
+        nextImg: "assets/images/no3.gif",
         sound: "assets/audio/bass3.mp3",
         forceYes: true
     }
