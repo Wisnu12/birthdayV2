@@ -5,20 +5,41 @@ document.addEventListener('DOMContentLoaded', () => {
     const noBtn = document.getElementById('no-btn');
     const rewatchBtn = document.getElementById('rewatch-btn');
     const background = document.getElementById('background');
-
+    const lightbox = document.getElementById("imageLightbox");
+    const lightboxImg = document.getElementById("lightboxImage");
+    const closeBtn = document.getElementById("closeLightbox");
+    const emojiContainer = document.getElementById("emoji-background");
+    const EMOJIS = ["🎂", "🎉", "💖", "✨", "🎈"];
+    const EMOJI_COUNT = 15;
     let currentSection = 0;
 
+    for (let i = 0; i < EMOJI_COUNT; i++) {
+    const emoji = document.createElement("div");
+    emoji.classList.add("floating-emoji");
+    emoji.textContent = EMOJIS[Math.floor(Math.random() * EMOJIS.length)];
+
+    // Random properties (same idea as Framer Motion)
+    const size = Math.random() * 1.5 + 1.5; // 1.5rem – 3rem
+    const duration = Math.random() * 10 + 10; // 10–20s
+    const delay = Math.random() * 5;
+
+    emoji.style.left = Math.random() * 100 + "vw";
+    emoji.style.fontSize = size + "rem";
+    emoji.style.animationDuration = duration + "s";
+    emoji.style.animationDelay = delay + "s";
+
+    emojiContainer.appendChild(emoji);
+}
     function showSection(index) {
-        sections.forEach((section, i) => {
-            if (i === index) {
-                setTimeout(() => {
-                    section.classList.add('active');
-                }, 500);
-            } else {
-                section.classList.remove('active');
-            }
-        });
-    }
+    sections.forEach((section, i) => {
+        if (i === index) {
+            section.classList.add('active');
+        } else {
+            section.classList.remove('active');
+        }
+    });
+}
+
 
     function createEmoji() {
         const emoji = document.createElement('div');
@@ -37,8 +58,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     nextBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-            sections[currentSection].classList.remove('active');
             currentSection++;
+            showSection(currentSection);
             if (currentSection >= sections.length) {
                 currentSection = 0;
             }
@@ -69,6 +90,23 @@ document.addEventListener('DOMContentLoaded', () => {
         currentSection = 0;
         showSection(currentSection);
     });
+
+        document.querySelectorAll(".image-grid img").forEach(img => {
+        img.addEventListener("click", () => {
+            lightboxImg.src = img.src;
+            lightbox.classList.add("active");
+        });
+    });
+
+    closeBtn.addEventListener("click", () => {
+        lightbox.classList.remove("active");
+    });
+
+    lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox) {
+            lightbox.classList.remove("active");
+        }
+    });    
 
     showSection(currentSection);
 });
